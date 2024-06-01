@@ -11,12 +11,12 @@ app.use((req, _, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   path = __dirname + "/views/index.html";
   res.sendFile(path);
 });
 
-app.get("/json", (req, res) => {
+app.get("/json", (_, res) => {
   let message = "Hello json";
   if (process.env.MESSAGE_STYLE === "uppercase") {
     message = message.toUpperCase();
@@ -29,7 +29,7 @@ app.get("/json", (req, res) => {
 
 app.get(
   "/now",
-  (req, res, next) => {
+  (req, _, next) => {
     req.time = new Date().toString();
     next();
   },
