@@ -13,7 +13,7 @@ app.use((req, _, next) => {
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (_, res) => {
   path = __dirname + "/views/index.html";
@@ -57,6 +57,7 @@ app.get("/name", (req, res) => {
 });
 
 app.post("/name", (req, res) => {
+  console.log(req.body);
   res.json({
     name: `${req.body.first} ${req.body.last}`,
   });
