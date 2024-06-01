@@ -57,7 +57,6 @@ app.get("/name", (req, res) => {
 });
 
 app.post("/name", (req, res) => {
-  console.log(req.body);
   res.json({
     name: `${req.body.first} ${req.body.last}`,
   });
