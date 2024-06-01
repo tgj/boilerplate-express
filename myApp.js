@@ -12,10 +12,7 @@ app.use((req, _, next) => {
   next();
 });
 
-app.use((_, _, next) => {
-  bodyParser.urlencoded({ extended: false });
-  next();
-});
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (_, res) => {
   path = __dirname + "/views/index.html";
