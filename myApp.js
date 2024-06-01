@@ -6,6 +6,11 @@ console.log("Hello World");
 
 app.use("/public", express.static(__dirname + "/public"));
 
+app.use((req, _, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
+
 app.get("/", (req, res) => {
   path = __dirname + "/views/index.html";
   res.sendFile(path);
